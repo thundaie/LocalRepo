@@ -1,8 +1,3 @@
-require("dotenv").config();
-import connectDb from "../connect/connect";
-
-connectDb(process.env.CONNECTION_URI as string);
-
 //Schemas
 import Lga from "../model/lga";
 import State from "../model/state";
@@ -54,4 +49,4 @@ async function populateDatabase() {
   console.log("DONE!!!!!!!!!!!!!!!!!!!!!!!");
 }
 
-populateDatabase();
+export default populateDatabase;

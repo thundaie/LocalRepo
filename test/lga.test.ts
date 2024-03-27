@@ -21,13 +21,34 @@ beforeEach(() => {
 })
 
 const dummyLga = [
-  { _id: "idone", name: "North Central" },
-  { _id: "idtwo", name: "North East" },
-  { _id: "idthree", name: "North West" },
-  { _id: "idfour", name: "South East" },
-  { _id: "idfive", name: "South West" },
-  { _id: "idsix", name: "South South" },
-];
+  { "name": "Aba North", "state": "Abia" },
+  { "name": "Aba South", "state": "Abia" },
+  { "name": "Arochukwu", "state": "Abia" },
+  { "name": "Bende", "state": "Abia" },
+  { "name": "Ikwuano", "state": "Abia" },
+  { "name": "Isiala Ngwa North", "state": "Abia" },
+  { "name": "Isiala Ngwa South", "state": "Abia" },
+  { "name": "Isuikwuato", "state": "Abia" },
+  { "name": "Obi Ngwa", "state": "Abia" },
+  { "name": "Ohafia", "state": "Abia" },
+  { "name": "Osisioma", "state": "Abia" },
+  { "name": "Ugwunagbo", "state": "Abia" },
+  { "name": "Ukwa East", "state": "Abia" },
+  { "name": "Ukwa West", "state": "Abia" },
+  { "name": "Umuahia North", "state": "Abia" },
+  { "name": "Umuahia South", "state": "Abia" },
+  { "name": "Umu Nneochi", "state": "Abia" },
+  { "name": "Demsa", "state": "Adamawa" },
+  { "name": "Fufure", "state": "Adamawa" },
+  { "name": "Ganye", "state": "Adamawa" },
+  { "name": "Gayuk", "state": "Adamawa" },
+  { "name": "Girei", "state": "Adamawa" },
+  { "name": "Gombi", "state": "Adamawa" },
+  { "name": "Hong", "state": "Adamawa" },
+  { "name": "Jada", "state": "Adamawa" },
+  { "name": "Lamurde", "state": "Adamawa" },
+  { "name": "Madagali", "state": "Adamawa" }
+]
 
 describe("Lga endpoint", () => {
   test("unauthenticated users are not allowed access to get LocalGovernment", async () => {

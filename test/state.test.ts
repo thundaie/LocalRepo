@@ -21,21 +21,20 @@ beforeEach(() => {
     jest.resetAllMocks();
 })
 
-const id = "North East"
 
 const dummyStates = [
-    { "name": "Benue", "region": id },
-    { "name": "Kogi", "region": id },
-    { "name": "Kwara", "region": id },
-    { "name": "Nasarawa", "region": id },
-    { "name": "Niger", "region": id },
-    { "name": "Plateau", "region": id },
-    { "name": "Federal Capital Territory", "region": id },
-    { "name": "Adamawa", "region": id },
-    { "name": "Bauchi", "region": id },
-    { "name": "Borno", "region": id },
-    { "name": "Gombe", "region": id },
-    { "name": "Taraba", "region": id },
+    { "name": "Benue", "region": "182735" },
+    { "name": "Kogi", "region": "182735" },
+    { "name": "Kwara", "region": "182735" },
+    { "name": "Nasarawa", "region": "182735" },
+    { "name": "Niger", "region": "182735" },
+    { "name": "Plateau", "region": "028363" },
+    { "name": "Federal Capital Territory", "region": "028363" },
+    { "name": "Adamawa", "region": "028363" },
+    { "name": "Bauchi", "region": "028363" },
+    { "name": "Borno", "region": "028363" },
+    { "name": "Gombe", "region": "028363" },
+    { "name": "Taraba", "region": "028363" },
 ]
 
 
@@ -51,8 +50,8 @@ describe("state end point test", () => {
         const token = generateToken("user1");
     
         MockedUserModel.findOne.mockResolvedValue({username: "user1"});
-        MockedStateModel.find.mockResolvedValue(dummyStates);
-        MockedStateModel.populate.mockName(id)
+        MockedStateModel.find.mockResolvedValue(dummyStates.filter(state => state.region === "028363"));
+
         
     
         // @ts-ignore
@@ -65,7 +64,7 @@ describe("state end point test", () => {
 
         
     
-        const response1 = await request(app).get("/regions").set({
+        const response1 = await request(app).get("/regions?name=Gombe&region=028363").set({
             token
         });
     
@@ -75,7 +74,7 @@ describe("state end point test", () => {
         expect(mockCacheGet).toHaveBeenCalledTimes(1);
     
     
-        mockCacheGet.mockResolvedValue(dummyStates)
+        mockCacheGet.mockResolvedValue(dummyStates.filter(state => state.region === "028363"))
         const response2 = await request(app).get("/regions").set({
             token
         });
