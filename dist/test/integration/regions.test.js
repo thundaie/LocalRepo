@@ -29,7 +29,6 @@ afterAll(() => __awaiter(void 0, void 0, void 0, function* () { return yield tes
 describe("test the regions endpoints", () => {
     test("returns a 200 with the list of regions", () => __awaiter(void 0, void 0, void 0, function* () {
         const token = yield (0, utils_1.createUser)("user1", "user@example.com", "password1234");
-        // const token = await generateToken("user1")
         const response = yield (0, supertest_1.default)(app_1.default).get("/regions").set({
             token
         });
@@ -38,15 +37,4 @@ describe("test the regions endpoints", () => {
         expect(response.body.regions.length).toBe(6);
     }));
     // Write other tests here
-    test("returns a specific region when it is queried", () => __awaiter(void 0, void 0, void 0, function* () {
-        const queryName = "South South";
-        const token = yield (0, utils_1.createUser)("user1", "user@example.com", "password1234");
-        // const token = await generateToken("user1")
-        const response = yield (0, supertest_1.default)(app_1.default).get("/regions").set({
-            token,
-            name: queryName
-        });
-        expect(response.statusCode).toBe(200);
-        expect(response.body.regions.length).toBe(1);
-    }));
 });

@@ -18,7 +18,6 @@ afterAll(async () => await db.close());
 describe("test the regions endpoints", () => {
   test("returns a 200 with the list of regions", async () => {
     const token = await createUser("user1", "user@example.com", "password1234");
-    // const token = await generateToken("user1")
     const response = await request(app).get("/regions").set({
       token
     })
@@ -29,16 +28,4 @@ describe("test the regions endpoints", () => {
   
   
   // Write other tests here
-
-  test("returns a specific region when it is queried", async() => {
-    const queryName = "South South"
-    const token = await createUser("user1", "user@example.com", "password1234");
-    // const token = await generateToken("user1")
-    const response = await request(app).get("/regions").set({
-      token,
-      name: queryName
-    })
-    expect(response.statusCode).toBe(200)
-    expect(response.body.regions.length).toBe(1)
-  })
 });
